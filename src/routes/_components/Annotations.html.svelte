@@ -25,7 +25,7 @@
  <div class="layercake-annotations">
    {#each annotations as d, i}
      <div
-       class="layercake-annotation text-xs xxs:text-sm"
+       class="layercake-annotation text-xs"
        data-id="{i}"
        style="{fillStyle(d)}"
      >{getText(d)}</div>

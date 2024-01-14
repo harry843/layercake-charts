@@ -12,7 +12,7 @@
   
   {#if evt.detail}
     <div
-    class="absolute w-200 border border-ccc rounded-md text-sm md:text-base bg-white transform-translate-neg-50-translate-neg-100 p-1 z-15 overflow-visible"
+    class="absolute w-200 border border-ccc rounded-md text-sm bg-white transform-translate-neg-50-translate-neg-100 p-1 z-15 overflow-visible"
       style="
         top:{evt.detail.e.layerY + offset}px;
         left:{evt.detail.e.layerX}px;
