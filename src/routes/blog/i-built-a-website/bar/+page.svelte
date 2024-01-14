@@ -61,7 +61,6 @@
 	const formatTickY = (d) => format(`~s`)(d);
 </script>
 
-<br />
 <section id="i-built-a-website-bar" class="flex flex-col">
 	<div class="chart-container" style="height: {height}vh" bind:clientWidth={width}>
 		{#if width > 0}
@@ -115,7 +114,6 @@
 			Developers using it
 		</div>
 	{/if}
-	<a class="text-center py-5" href="/blog/i-built-a-website">Back</a>
 </section>
 
 <style>
