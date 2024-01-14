@@ -62,7 +62,7 @@
 </script>
 
 <section id="i-built-a-website-bar" class="flex flex-col">
-	<div class="chart-container" style="height: {height}vh" bind:clientWidth={width}>
+	<div class="chart-container" style="height: 80vh" bind:clientWidth={width}>
 		{#if width > 0}
 			<LayerCake
 				padding={{ top: 0, bottom: 20, left: 30 }}
