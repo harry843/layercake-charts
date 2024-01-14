@@ -26,8 +26,6 @@ const xKeyCast = timeParse('%Y-%m-%d');
 const seriesNames = Object.keys(data[0]).filter(d => d !== xKey);
 const seriesColors = ['#61dbfb', '#aa1e1e'];
 
-$: yAxisTitleYTransform = width <= 400 ? 60 : 72
-$: yAxisTitleXTransform =  width / 100
 /* --------------------------------------------
  * Cast values
  */
@@ -54,12 +52,10 @@ const distinctYears: number[] = Array.from( new Set(data.map(d => new Date(d[xKe
 const maxDate = new Date(Math.max(...data.map(d => d[xKey])));
 const secondSmallestDate = data.map(d => d[xKey]).sort((a, b) => a - b)[1]
 </script>
-
-<section class="flex flex-col">
-
-
+<br>
+<section id="i-built-a-website-line" class="flex flex-col">
 <div class="flex flex-row relative" bind:clientWidth={width}>
-<div id="LineYAxisTitle" class="absolute origin-top-left -rotate-90 items-center justify-center text-center text-xs sm:text-sm text-gray-700 translate-y-{yAxisTitleYTransform} left-1 xxs:left-2 xs:left-4 sm:left-6 md:left-8 lg:left-20 xl:left-24 2xl:left-32">Number of StackOverflow Posts</div>
+<div id="LineYAxisTitle" class="absolute origin-top-left -rotate-90 items-center justify-center text-center text-xs sm:text-sm text-gray-700 translate-y-{width <= 400 ? 60 : 72} left-1 xxs:left-2 xs:left-4 sm:left-6 md:left-8 lg:left-20 xl:left-24 2xl:left-32">Number of StackOverflow Posts</div>
 <div class="chart-container" style="height: {height}vh" bind:clientWidth={width}>
 {#if width > 0}
 	<LayerCake
@@ -100,7 +96,7 @@ const secondSmallestDate = data.map(d => d[xKey]).sort((a, b) => a - b)[1]
   {/if}
 </div>
 </div>
-
+<a class="text-center py-5" href="/blog/i-built-a-website">Back</a>
 </section>
 <style>
 	.chart-container {

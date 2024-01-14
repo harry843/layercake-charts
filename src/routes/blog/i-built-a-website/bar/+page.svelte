@@ -58,8 +58,8 @@ const addCommas = format(',');
 
 const formatTickY = d => format(`~s`)(d);
 </script>
-
-<section class="flex flex-col">
+<br>
+<section id="i-built-a-website-bar" class="flex flex-col">
 
 	<div class="chart-container" style="height: {height}vh" bind:clientWidth={width}>
 		{#if width > 0}
@@ -114,7 +114,7 @@ const formatTickY = d => format(`~s`)(d);
 {#if width > 0}
 <div id="BarXAxisTitle" class="text-center text-xs xs:text-sm text-gray-700 -translate-y-1/2">Developers using it</div>
 {/if}
-
+<a class="text-center py-5" href="/blog/i-built-a-website">Back</a>
 </section>
 <style>
 	.chart-container {
