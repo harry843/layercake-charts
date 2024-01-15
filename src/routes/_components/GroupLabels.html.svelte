@@ -24,7 +24,7 @@
   
   {#each $data as group}
     <div
-      class={classNames("absolute -translate-x-full -translate-y-full text-sm", {"translate-y-5 sm:translate-y-10 md:translate-y-16": group.Framework === "React"})}
+      class={classNames("absolute -translate-x-full -translate-y-full text-sm", {"translate-y-10 sm:y-translate-20": group.Framework === "React"})}
       style="
         top:{top(group.values) * 100}%;
         left:{left(group.values) * 100}%;
