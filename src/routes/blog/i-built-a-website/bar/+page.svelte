@@ -65,7 +65,7 @@
 	<div class="chart-container" style="height: 80vh" bind:clientWidth={width}>
 		{#if width > 0}
 			<LayerCake
-				padding={{ top: 0, bottom: 20, left: 30 }}
+				padding={{ top: 0, bottom: 20, left: 30, right: 15}}
 				x={xBar}
 				y={yBar}
 				yScale={scaleBand().paddingInner(0.1)}
