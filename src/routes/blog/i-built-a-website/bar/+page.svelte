@@ -75,7 +75,7 @@
 				debug={false}
 			>
 				<Svg zIndex={1}>
-					<AxisX gridlines={false} baseline={false} tickMarks={true} formatTick={formatTickY} />
+					<AxisX gridlines={false} baseline={false} tickMarks={true} formatTick={formatTickY} screenWidth={width} skipXTick={true} />
 					<AxisY gridlines={false} />
 					<Bar
 						on:mousemove={(event) => (evt = hideTooltip = event)}

@@ -10,6 +10,11 @@
 	/** @type {Boolean} [gridlines=true] - Extend lines from the ticks into the chart space */
 	export let gridlines = true;
 
+	/** @type {Boolean} [refline=false] - Extend lines from the ticks into the chart space */
+	export let refline = false;
+
+	export let reflineConfig = undefined;
+
 	/** @type {Boolean} [tickMarks=false] - Show a vertical mark for each tick. */
 	export let tickMarks = false;
 
@@ -34,6 +39,11 @@
 	/** @type {String} [textAnchor='start'] The CSS `text-anchor` passed to the label. This is automatically set to "end" if the scale has a bandwidth method, like in ordinal scales. */
 	export let textAnchor = 'start';
 
+	/** @type {String} [units=''] The units passed to the y-axis labels. */
+	export let units = '';
+
+	export let skipYTick = false;
+
 	$: isBandwidth = typeof $yScale.bandwidth === 'function';
 
 	$: tickVals = Array.isArray(ticks)
@@ -43,11 +53,11 @@
 		: typeof ticks === 'function'
 		? ticks($yScale.ticks())
 		: $yScale.ticks(ticks);
- //$: console.log(tickVals)
+	$: console.log(tickVals);
 </script>
 
 <g class="axis y-axis" transform="translate({-$padding.left}, 0)">
-	{#each tickVals as tick (tick)}
+	{#each tickVals as tick, index (tick)}
 		<g
 			class="tick tick-{tick}"
 			transform="translate({$xRange[0] + (isBandwidth ? $padding.left : 0)}, {$yScale(tick)})"
@@ -69,16 +79,42 @@
 					y2={isBandwidth ? $yScale.bandwidth() / 2 : 0}
 				/>
 			{/if}
-			<text
-				class= {tick === 'Svelte' ? 'font-bold text-xs xxs:text-sm md:text-base' : typeof tick === "string" ? 'text-xs xxs:text-sm md:text-base font-regular': 'text-xs xs:text-sm text-gray-700'}
-				x={xTick}
-				y={isBandwidth ? $yScale.bandwidth() / 2 + yTick : yTick}
-				dx={isBandwidth ? -9 : dxTick}
-				dy={isBandwidth ? 4 : dyTick}
-				style="text-anchor:{isBandwidth ? 'end' : textAnchor};">{formatTick(tick)}</text
-			>
+			{#if skipYTick && index % 2 == 0}
+				<text
+					class={tick === 'Svelte'
+						? 'font-bold text-xs xxs:text-sm md:text-base'
+						: typeof tick === 'string'
+						? 'text-xs xxs:text-sm md:text-base font-regular'
+						: 'text-xs xs:text-sm text-gray-700'}
+					x={xTick}
+					y={isBandwidth ? $yScale.bandwidth() / 2 + yTick : yTick}
+					dx={isBandwidth ? -9 : dxTick}
+					dy={isBandwidth ? 4 : dyTick}
+					style="text-anchor:{isBandwidth ? 'end' : textAnchor};">{formatTick(tick)}{units}</text
+				>
+			{:else if !skipYTick}
+				<text
+					class={tick === 'Svelte'
+						? 'font-bold text-xs xxs:text-sm md:text-base'
+						: typeof tick === 'string'
+						? 'text-xs xxs:text-sm md:text-base font-regular'
+						: 'text-xs xs:text-sm text-gray-700'}
+					x={xTick}
+					y={isBandwidth ? $yScale.bandwidth() / 2 + yTick : yTick}
+					dx={isBandwidth ? -9 : dxTick}
+					dy={isBandwidth ? 4 : dyTick}
+					style="text-anchor:{isBandwidth ? 'end' : textAnchor};">{formatTick(tick)}{units}</text
+				>
+			{/if}
 		</g>
 	{/each}
+	{#if refline}
+		<g
+			transform="translate({$xRange[0] + (isBandwidth ? $padding.left : 0)}, {$yScale(reflineConfig.value)})"
+			><line stroke={reflineConfig.lineColour} stroke-dasharray={reflineConfig.strokeDash} x2="100%" />
+			<text class="-translate-y-2 translate-x-1/4">{reflineConfig.text}</text>
+		</g>
+	{/if}
 </g>
 
 <style>

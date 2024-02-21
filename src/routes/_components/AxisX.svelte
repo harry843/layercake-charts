@@ -31,10 +31,15 @@
 	/** @type {Number} [yTick=16] - The distance from the baseline to place each tick value. */
 	export let yTick = 25;
 
+	export let skipXTick = false;
+
+	/** @type {Number} [screenWidth=0] - The width of the users screen in pixels. */
+	export let screenWidth = 0;
+
 	export let customAxis = false;
 
-	export let customAxisMaxXvalue;
-	export let customAxisXTranslate;
+	export let customAxisMaxXvalue = undefined;
+	export let customAxisXTranslate = undefined;
 
 	$: isBandwidth = typeof $xScale.bandwidth === 'function';
 
@@ -61,25 +66,41 @@
 
 	function customXTranslate(tick, i, tickVals) {
 		if (customAxis === true) {
-			const axisLength = $xScale(customAxisMaxXvalue) + $xScale(customAxisXTranslate)
-			return (i / tickVals.length) * axisLength
-		}
-		else {
-			return $xScale(tick)
+			const axisLength = $xScale(customAxisMaxXvalue) + $xScale(customAxisXTranslate);
+			return (i / tickVals.length) * axisLength;
+		} else {
+			return $xScale(tick);
 		}
 	}
-
 </script>
 
 <g class="axis x-axis" class:snapTicks>
 	{#each tickVals as tick, i (tick)}
-		<g class="tick tick-{i}" transform="translate({customXTranslate(tick, i, tickVals)},{Math.max(...$yRange)})">
+		<g
+			class="tick tick-{i}"
+			transform="translate({customXTranslate(tick, i, tickVals)},{Math.max(...$yRange)})"
+		>
 			{#if gridlines !== false}
 				<line class="gridline" y1={$height * -1} y2="0" x1="0" x2="0" />
 			{/if}
-			{#if tickMarks === true}
-				
-			<line
+			{#if tickMarks === true && screenWidth >= 640 && i % 2 == 0 && skipXTick}
+				<line
+					class="tick-mark"
+					y1={0}
+					y2={6}
+					x1={isBandwidth ? $xScale.bandwidth() / 2 : 0}
+					x2={isBandwidth ? $xScale.bandwidth() / 2 : 0}
+				/>
+			{:else if tickMarks === true && screenWidth < 640 && i % 3 == 0 && skipXTick}
+				<line
+					class="tick-mark"
+					y1={0}
+					y2={6}
+					x1={isBandwidth ? $xScale.bandwidth() / 2 : 0}
+					x2={isBandwidth ? $xScale.bandwidth() / 2 : 0}
+				/>
+			{:else if !skipXTick}
+				<line
 					class="tick-mark"
 					y1={0}
 					y2={6}
@@ -87,14 +108,35 @@
 					x2={isBandwidth ? $xScale.bandwidth() / 2 : 0}
 				/>
 			{/if}
-			<text
-				x={isBandwidth ? $xScale.bandwidth() / 2 + xTick : xTick}
-				y={yTick}
-				dx=""
-				dy=""
-				text-anchor={textAnchor(i)}>{formatTick(tick)}</text
-			>
+
+			{#if screenWidth >= 640 && skipXTick && i % 2 == 0}
+				<text
+					x={isBandwidth ? $xScale.bandwidth() / 2 + xTick : xTick}
+					y={yTick}
+					dx=""
+					dy=""
+					text-anchor={textAnchor(i)}>{formatTick(tick)}</text
+				>
+			{:else if screenWidth < 640 && skipXTick && i % 3 == 0}
+				<text
+					x={isBandwidth ? $xScale.bandwidth() / 2 + xTick : xTick}
+					y={yTick}
+					dx=""
+					dy=""
+					text-anchor={textAnchor(i)}>{formatTick(tick)}</text
+				>
+			{:else if !skipXTick}
+				<text
+					x={isBandwidth ? $xScale.bandwidth() / 2 + xTick : xTick}
+					y={yTick}
+					dx=""
+					dy=""
+					text-anchor={textAnchor(i)}
+					>{formatTick(tick)}
+				</text>
+			{/if}
 		</g>
+
 		<div class="py-2">{tick}</div>
 	{/each}
 	{#if baseline === true}
