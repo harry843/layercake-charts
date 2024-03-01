@@ -43,9 +43,9 @@
 	//flatData.forEach((d) => {console.log(dataLookup.get(d[dataJoinKey])) })
 </script>
 <div>
-	<h1 class="text-lg lg:text-xl xl:text-2xl font-medium text-center py-4 pb-10">Chelsea, Westminster and Hackney have the lowest MMR vaccination uptake in London</h1>
+	<h1 class="text-lg lg:text-xl xl:text-2xl font-medium text-center py-4 pb-2">Chelsea, Westminster and Hackney have the lowest MMR vaccination uptake in London</h1>
 </div>
-<div id="london-map" class="chart-container h-[20vh] xxs:h-[30vh] xs:h-[40vh] sm:h-[48vh] md:h-[56vh] lg:h-[68vh]">
+<div id="london-map" class="chart-container h-[26vh] xxs:h-[32vh] xs:h-[44vh] sm:h-[50vh] md:h-[56vh] lg:h-[68vh]">
 	<LayerCake
 		data={geojson}
 		z={d => dataLookup.get(d[mapJoinKey])[colorKey]}
