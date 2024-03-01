@@ -45,7 +45,7 @@
 <div>
 	<h1 class="text-lg lg:text-xl xl:text-2xl font-medium text-center py-4 pb-10">Chelsea, Westminster and Hackney have the lowest MMR vaccination uptake in London</h1>
 </div>
-<div id="london-map" class="chart-container">
+<div id="london-map" class="chart-container h-[36vh] md:h-[50vh] lg:h-[64vh]">
 	<LayerCake
 		data={geojson}
 		z={d => dataLookup.get(d[mapJoinKey])[colorKey]}
@@ -91,7 +91,6 @@
       expand to fill it.
     */
 	.chart-container {
-		width: 85%;
-		height: 64vh;
+		width: 95%;
 	}
 </style>
