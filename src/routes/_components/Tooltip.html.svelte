@@ -15,7 +15,7 @@
     class="absolute w-200 border border-ccc rounded-md text-sm bg-white transform-translate-neg-50-translate-neg-100 p-1 z-15 overflow-y-auto"
       style="
         top:{evt.detail.e.layerY + offset}px;
-        left:{evt.detail.e.layerX}px;
+        left:{evt.detail.e.layerX + -1*offset/2.5}px;
       "
     >
       <slot detail={evt.detail}></slot>

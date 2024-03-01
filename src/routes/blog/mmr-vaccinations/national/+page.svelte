@@ -62,7 +62,7 @@ const secondSmallestDate = data.map(d => d[xKey]).sort((a, b) => a - b)[1]
 <div class="chart-container" style="height: 80vh" bind:clientWidth={width}>
 {#if width > 0}
 	<LayerCake
-    padding={{ top: 125, right: 10, bottom: 20, left: 25 }}
+    padding={{ top: 125, right: 10, bottom: 0, left: 25 }}
     x={xKey}
     y={yKey}
     z={zKey}
