@@ -9,7 +9,7 @@
 	import Tooltip from '../../../_components/Tooltip.html.svelte';
 
 	// This example loads json data as json using @rollup/plugin-json
-    import londonBoroughs from '../../../_data/london-boroughs_1179.json'
+	import londonBoroughs from '../../../_data/london-boroughs_1179.json';
 	import mmrData from '../../../_data/london-boroughs-mmr-uptake.json';
 
 	const colorKey = 'myValue';
@@ -35,20 +35,26 @@
 
 	// Create a flat array of objects that LayerCake can use to measure
 	// extents for the color scale
-	const flatData = geojson.features.map(d => d.properties);
-	const colors = ['#ff7a33', '#ffa06b', '#ffc09c', '#ffdecc',]
+	const flatData = geojson.features.map((d) => d.properties);
+	const colors = ['#ff7a33', '#ffa06b', '#ffc09c', '#ffdecc'];
 
 	const addCommas = format(',');
 	//console.log("FlatData",flatData);
 	//flatData.forEach((d) => {console.log(dataLookup.get(d[dataJoinKey])) })
 </script>
+
 <div>
-	<h1 class="text-lg lg:text-xl xl:text-2xl font-medium text-center py-4 pb-2">Chelsea, Westminster and Hackney have the lowest MMR vaccination uptake in London</h1>
+	<h1 class="text-lg lg:text-xl xl:text-2xl font-medium text-center py-4 pb-2">
+		Chelsea, Westminster and Hackney have the lowest MMR vaccination uptake in London
+	</h1>
 </div>
-<div id="london-map" class="chart-container h-[30vh] xxs:h-[38vh] xs:h-[48vh] sm:h-[58vh] md:h-[64vh] lg:h-[72vh]">
+<div
+	id="london-map"
+	class="chart-container h-[26vh] xxs:h-[30vh] xs:h-[42vh] sm:h-[58vh] md:h-[64vh] lg:h-[76vh]"
+>
 	<LayerCake
 		data={geojson}
-		z={d => dataLookup.get(d[mapJoinKey])[colorKey]}
+		z={(d) => dataLookup.get(d[mapJoinKey])[colorKey]}
 		zScale={scaleQuantize()}
 		zRange={colors}
 		{flatData}
@@ -57,7 +63,7 @@
 			<MapSvg
 				{projection}
 				reflectY={true}
-				fixedAspectRatio={650/210}
+				fixedAspectRatio={650 / 210}
 				on:mousemove={(event) => (evt = hideTooltip = event)}
 				on:mouseout={() => (hideTooltip = true)}
 			/>
@@ -69,12 +75,14 @@
 					<!-- For the tooltip, do another data join because the hover event only has the data from the geography data -->
 					{@const tooltipData = { ...detail.props, ...dataLookup.get(detail.props['name']) }}
 					{#each Object.entries(tooltipData) as [key, value]}
-						{#if key === "name" || key === "myValue"}
-						{@const keyCapitalized = key.replace(/^\w/, (d) => d.toUpperCase())}
-						<div class="row">
-							<span>{keyCapitalized}:</span>
-							<span class="font-medium">{typeof value === 'number' ? addCommas(value)+'%' : value}</span>
-						</div>
+						{#if key === 'name' || key === 'myValue'}
+							{@const keyCapitalized = key.replace(/^\w/, (d) => d.toUpperCase())}
+							<div class="row">
+								<span>{keyCapitalized}:</span>
+								<span class="font-medium"
+									>{typeof value === 'number' ? addCommas(value) + '%' : value}</span
+								>
+							</div>
 						{/if}
 					{/each}
 				</Tooltip>
