@@ -92,6 +92,6 @@
     */
 	.chart-container {
 		width: 85%;
-		height: 32vh;
+		height: 64vh;
 	}
 </style>
