@@ -33,9 +33,13 @@
  </div>
  
  <style>
+  .layercake-annotations {
+     z-index: 100;
+   }
    .layercake-annotation {
      position: absolute;
      padding-left: 12px;
+     z-index: 100;
    }
 
  </style>

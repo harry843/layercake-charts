@@ -37,7 +37,7 @@
     $: fitSizeRange = fixedAspectRatio ? [$width, $width/fixedAspectRatio] : [$width, $height];
     $: console.log(fitSizeRange)
   
-    $: projectionFn = projection().reflectY(reflectY).clipExtent([[0, 0], [$width, $height]])
+    $: projectionFn = projection().reflectY(reflectY)
     .fitSize(fitSizeRange, $data)
   
     $: geoPathFn = geoPath(projectionFn);
@@ -61,9 +61,9 @@
     {#each (features || $data.features) as feature}
       <path
         class="feature-path"
-        fill="{fill || [24, 25, 29].includes(feature.properties.id) ? "red" : $zGet(feature.properties)}"
+        fill="{fill || $zGet(feature.properties)}"
         stroke={stroke}
-        stroke-width={[24, 25, 29].includes(feature.properties.id) ? 4*strokeWidth: strokeWidth}
+        stroke-width={strokeWidth}
         d="{geoPathFn(feature)}"
         on:mouseover={(e) => dispatch('mousemove', { e, props: feature.properties })}
         on:focus={(e) => dispatch('mousemove', { e, props: feature.properties })}

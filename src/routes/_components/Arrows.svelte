@@ -84,6 +84,8 @@
     }
   
     $: if (annotationEls && annotationEls.length) d = setPath($width, $height);
+
+    console.log(annotations.length)
   </script>
   
   <g bind:this={container}>
@@ -107,6 +109,7 @@
       position: absolute;
       max-width: 200px;
       line-height: 14px;
+      z-index: 100;
     }
     .swoops path {
       fill: none;
