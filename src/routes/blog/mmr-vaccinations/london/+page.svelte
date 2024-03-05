@@ -26,7 +26,7 @@
 				{
 					clockwise: true, // true or false, defaults to true
 					source: {
-						anchor: 'middle-top', // can be `{left, middle, right},{top-middle-bottom}`
+						anchor: 'middle-middle', // can be `{left, middle, right},{top-middle-bottom}`
 						dx: -21,
 						dy: -21
 					},
@@ -80,15 +80,15 @@
 			</h1>
 		</div>
 
-		<div class="absolute right-0 mr-auto ml-auto w-32 -translate-x-3 sm:-translate-x-1/4">
+		<div class="absolute right-0 mr-auto ml-auto w-32 -translate-x-1 sm:-translate-x-[15%]">
 			<h2 class="flex flex-row justify-center text-[0.575rem] sm:text-xs font-medium w-32 py-1">
-				Vaccination Rate (%)
+				Vaccination Rate
 			</h2>
 			<div class="flex flex-row justify-center h-3 sm:h-4 w-32">
 				<div
-					class="bg-[#e11d48] border border-[#e11d48] border-r-[#f43f5e] w-3 sm:w-4 h-3 sm:h-4 text-xs"
+					class="bg-[#e11d48] border border-[#e11d48] border-r-[#f43f5e] w-3 sm:w-4 h-3 sm:h-4 text-[0.5rem] sm:text-xs"
 				>
-					<p class="translate-y-4 sm:translate-y-4">65%</p>
+					<p class="translate-y-3 sm:translate-y-4">65%</p>
 				</div>
 				<div
 					class="bg-[#fda4af] border border-[#fda4af] border-r-[#fda4af] w-3 sm:w-4 h-3 sm:h-4 text-xs"
@@ -102,7 +102,7 @@
 				<div
 					class="bg-[#e0e7ff] border border-[#e0e7ff] border-r-[#c7d2fe] w-3 sm:w-4 h-3 sm:h-4 text-xs"
 				/>
-				<div class="bg-[#a5b4fc] w-3 sm:w-4 h-3 sm:h-4 text-xs">
+				<div class="bg-[#a5b4fc] w-3 sm:w-4 h-3 sm:h-4 text-[0.5rem] text-xs">
 					<p class="translate-y-3 sm:translate-y-4 sm:translate-x-1">90%</p>
 				</div>
 			</div>
