@@ -82,7 +82,7 @@
 			</h1>
 		</div>
 
-		<div class={classNames("absolute right-0 mr-auto ml-auto w-32 -translate-x-1 sm:-translate-x-[15%]", {"bottom-0": width<640})}>
+		<div class={classNames("absolute right-0 mr-auto ml-auto w-32 -translate-x-1 sm:-translate-x-[15%]", {"bottom-0": width<580})}>
 			<h2 class="flex flex-row justify-center text-[0.575rem] sm:text-xs font-medium w-32 py-1">
 				Vaccination Rate
 			</h2>
@@ -130,7 +130,7 @@
 					/>
 					<Arrows {annotations} {swoopiness} />
 					<svelte:fragment slot="defs">
-						<ArrowheadMarker />
+						<ArrowheadMarker size={10} />
 					</svelte:fragment>
 				</Svg>
 
@@ -174,6 +174,6 @@
       expand to fill it.
     */
 	.chart-container {
-		width: 75%;
+		width: 80%;
 	}
 </style>
