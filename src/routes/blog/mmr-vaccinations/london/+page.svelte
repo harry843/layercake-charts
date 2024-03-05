@@ -102,7 +102,7 @@
 				<div
 					class="bg-[#e0e7ff] border border-[#e0e7ff] border-r-[#c7d2fe] w-3 sm:w-4 h-3 sm:h-4 text-xs"
 				/>
-				<div class="bg-[#a5b4fc] w-3 sm:w-4 h-3 sm:h-4 text-[0.5rem] text-xs">
+				<div class="bg-[#a5b4fc] w-3 sm:w-4 h-3 sm:h-4 text-[0.5rem] sm:text-xs">
 					<p class="translate-y-3 sm:translate-y-4 sm:translate-x-1">90%</p>
 				</div>
 			</div>
