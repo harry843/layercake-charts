@@ -4,6 +4,8 @@
 	import { geoIdentity } from 'd3-geo';
 	import { scaleQuantize } from 'd3-scale';
 	import { format } from 'd3-format';
+	import classNames from 'classnames';
+
 
 	import MapSvg from '../../../_components/Map.svg.svelte';
 	import Tooltip from '../../../_components/Tooltip.html.svelte';
@@ -80,7 +82,7 @@
 			</h1>
 		</div>
 
-		<div class="absolute right-0 mr-auto ml-auto w-32 -translate-x-1 sm:-translate-x-[15%]">
+		<div class={classNames("absolute right-0 mr-auto ml-auto w-32 -translate-x-1 sm:-translate-x-[15%]", {"bottom-0": width<640})}>
 			<h2 class="flex flex-row justify-center text-[0.575rem] sm:text-xs font-medium w-32 py-1">
 				Vaccination Rate
 			</h2>
