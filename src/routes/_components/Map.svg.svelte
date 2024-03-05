@@ -35,7 +35,6 @@
     const dispatch = createEventDispatcher();
   
     $: fitSizeRange = fixedAspectRatio ? [$width, $width/fixedAspectRatio] : [$width, $height];
-    $: console.log(fitSizeRange)
   
     $: projectionFn = projection().reflectY(reflectY)
     .fitSize(fitSizeRange, $data)

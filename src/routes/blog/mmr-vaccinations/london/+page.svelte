@@ -19,26 +19,26 @@
 
 	$: annotations = [
 		{
-			text: 'Hackney has the lowest vaccination rates',
-			top: '10%',
-			right: '11%',
+			text: 'Hackney has the lowest vaccination rates in London',
+			top: '100%',
+			right: '34%',
 			arrows: [
 				{
 					clockwise: true, // true or false, defaults to true
 					source: {
-						anchor: 'middle-top', // can be `{left, middle, right},{top-middle-bottom}`
-						dx: -41,
-						dy: 24
+						anchor: 'middle-bottom', // can be `{left, middle, right},{top-middle-bottom}`
+						dx: -21,
+						dy: -21
 					},
 					target: {
-						x: '52.5%',
-						y: '34%'
+						x: '53.5%',
+						y: '37%'
 					}
 				}
 			]
 		}
 	];
-	const swoopiness = 4;
+	const swoopiness = 10
 
 	const colorKey = 'Percentage of Total';
 
@@ -80,30 +80,30 @@
 			</h1>
 		</div>
 
-		<div class="absolute left-0 mr-auto ml-auto w-32 translate-x-1/4 sm:translate-x-full">
-			<h2 class="flex flex-row justify-center text-xs font-medium w-32 py-1">
+		<div class="absolute left-0 mr-auto ml-auto w-32 translate-x-1/4 sm:translate-x-1/2">
+			<h2 class="flex flex-row justify-center text-[0.575rem] sm:text-xs font-medium w-32 py-1">
 				Vaccination Rate (%)
 			</h2>
-			<div class="flex flex-row justify-center h-4 sm:h-6 w-32">
+			<div class="flex flex-row justify-center h-3 sm:h-4 w-32">
 				<div
-					class="bg-[#e11d48] border border-[#e11d48] border-r-[#f43f5e] w-4 sm:w-6 h-4 sm:h-6 text-xs"
+					class="bg-[#e11d48] border border-[#e11d48] border-r-[#f43f5e] w-3 sm:w-4 h-3 sm:h-4 text-xs"
 				>
-					<p class="translate-y-4 sm:translate-y-6">65%</p>
+					<p class="translate-y-4 sm:translate-y-4">65%</p>
 				</div>
 				<div
-					class="bg-[#fda4af] border border-[#fda4af] border-r-[#fda4af] w-4 sm:w-6 h-4 sm:h-6 text-xs"
+					class="bg-[#fda4af] border border-[#fda4af] border-r-[#fda4af] w-3 sm:w-4 h-3 sm:h-4 text-xs"
 				/>
 				<div
-					class="bg-[#fff1f2] border border-[#fff1f2] border-r-[#e5e7eb] w-4 sm:w-6 h-4 sm:h-6 text-xs"
+					class="bg-[#fff1f2] border border-[#fff1f2] border-r-[#e5e7eb] w-3 sm:w-4 h-3 sm:h-4 text-xs"
 				/>
 				<div
-					class="bg-[#eef2ff] border border-[#eef2ff] border-r-[#c7d2fe] w-4 sm:w-6 h-4 sm:h-6 text-xs"
+					class="bg-[#eef2ff] border border-[#eef2ff] border-r-[#c7d2fe] w-3 sm:w-4 h-3 sm:h-4 text-xs"
 				/>
 				<div
-					class="bg-[#e0e7ff] border border-[#e0e7ff] border-r-[#c7d2fe] w-4 sm:w-6 h-4 sm:h-6 text-xs"
+					class="bg-[#e0e7ff] border border-[#e0e7ff] border-r-[#c7d2fe] w-3 sm:w-4 h-3 sm:h-4 text-xs"
 				/>
-				<div class="bg-[#a5b4fc] w-4 sm:w-6 h-4 sm:h-6 text-xs">
-					<p class="translate-y-4 sm:translate-y-6 sm:translate-x-1">90%</p>
+				<div class="bg-[#a5b4fc] w-3 sm:w-4 h-3 sm:h-4 text-xs">
+					<p class="translate-y-3 sm:translate-y-4 sm:translate-x-1">90%</p>
 				</div>
 			</div>
 		</div>
@@ -143,7 +143,9 @@
 								{#if ['name', 'Children Vaccinated', 'Percentage of Total'].includes(key)}
 									{@const keyCapitalized = key.replace(/^\w/, (d) => d.toUpperCase())}
 									<div class="row">
-										<span class="text-xs">{keyCapitalized==="Name" ? "Borough" : keyCapitalized}:</span>
+										<span class="text-xs"
+											>{keyCapitalized === 'Name' ? 'Borough' : keyCapitalized}:</span
+										>
 										<span class="text-xs font-medium"
 											>{typeof value === 'number' && value >= 1000
 												? addCommas(value)

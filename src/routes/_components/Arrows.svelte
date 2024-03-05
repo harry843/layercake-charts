@@ -85,7 +85,6 @@
   
     $: if (annotationEls && annotationEls.length) d = setPath($width, $height);
 
-    console.log(annotations.length)
   </script>
   
   <g bind:this={container}>
