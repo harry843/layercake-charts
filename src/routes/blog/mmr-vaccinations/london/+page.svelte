@@ -20,13 +20,13 @@
 	$: annotations = [
 		{
 			text: 'Hackney has the lowest vaccination rates in London',
-			top: '100%',
+			top: '108%',
 			right: '34%',
 			arrows: [
 				{
 					clockwise: true, // true or false, defaults to true
 					source: {
-						anchor: 'middle-bottom', // can be `{left, middle, right},{top-middle-bottom}`
+						anchor: 'middle-top', // can be `{left, middle, right},{top-middle-bottom}`
 						dx: -21,
 						dy: -21
 					},
@@ -80,7 +80,7 @@
 			</h1>
 		</div>
 
-		<div class="absolute left-0 mr-auto ml-auto w-32 translate-x-1/4 sm:translate-x-1/2">
+		<div class="absolute right-0 mr-auto ml-auto w-32 -translate-x-3 sm:-translate-x-1/4">
 			<h2 class="flex flex-row justify-center text-[0.575rem] sm:text-xs font-medium w-32 py-1">
 				Vaccination Rate (%)
 			</h2>
