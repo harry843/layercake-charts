@@ -112,7 +112,7 @@
 		<g
 			transform="translate({$xRange[0] + (isBandwidth ? $padding.left : 0)}, {$yScale(reflineConfig.value)})"
 			><line stroke={reflineConfig.lineColour} stroke-dasharray={reflineConfig.strokeDash} x2="100%" />
-			<text class="-translate-y-2 translate-x-1/4">{reflineConfig.text}</text>
+			<text class="-translate-y-2 translate-x-1/4 text-sm">{reflineConfig.text}</text>
 		</g>
 	{/if}
 </g>

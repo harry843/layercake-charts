@@ -101,7 +101,7 @@ const secondSmallestDate = data.map(d => d[xKey]).sort((a, b) => a - b)[1]
         formatTitle={formatTooltipX}
         tooltipWidth={252}
         dataset={data}
-        offset={150}
+        offset={188}
         bold={true}
         keyColours={seriesColors}
         units={"% vaccinated"}
