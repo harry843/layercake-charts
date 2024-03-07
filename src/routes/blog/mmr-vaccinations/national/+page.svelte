@@ -59,7 +59,7 @@ const secondSmallestDate = data.map(d => d[xKey]).sort((a, b) => a - b)[1]
 <section id="mmr-london-vs-england" class="flex flex-col">
 <div class="flex flex-row relative" bind:clientWidth={width}>
 <div id="LineYAxisTitle" class="absolute origin-top-left -rotate-90 items-center justify-center text-center text-xs sm:text-sm text-gray-700 translate-y-72 left-1 xxs:left-2 xs:left-4 sm:left-6 md:left-8 lg:left-20 xl:left-24 2xl:left-32">Percentage of Children Vaccinated</div>
-<div class="chart-container" style="height: 90vh" bind:clientWidth={width}>
+<div class="chart-container" style="height: 80vh" bind:clientWidth={width}>
 {#if width > 0}
 	<LayerCake
     padding={{ top: 45, right: 10, bottom: 0, left: 25 }}
