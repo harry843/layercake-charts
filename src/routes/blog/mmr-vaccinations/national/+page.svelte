@@ -87,6 +87,7 @@ const secondSmallestDate = data.map(d => d[xKey]).sort((a, b) => a - b)[1]
         ticks={[60, 70, 80, 90, 100]}
         formatTick={formatTickY}
         units={"%"}
+        dxTick={-10}
         skipYTick={true}
         refline={true}
         {reflineConfig}
