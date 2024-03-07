@@ -54,6 +54,8 @@ const distinctYears: string[] = Array.from( data.map(d => d[xKey].getFullYear().
 
 const maxDate = new Date(Math.max(...data.map(d => d[xKey])));
 const secondSmallestDate = data.map(d => d[xKey]).sort((a, b) => a - b)[1]
+
+$: dxTick = width < 490 ? -2 : -10
 </script>
 
 <section id="mmr-london-vs-england" class="flex flex-col">
@@ -87,7 +89,7 @@ const secondSmallestDate = data.map(d => d[xKey]).sort((a, b) => a - b)[1]
         ticks={[60, 70, 80, 90, 100]}
         formatTick={formatTickY}
         units={"%"}
-        dxTick={-10}
+        {dxTick}
         skipYTick={true}
         refline={true}
         {reflineConfig}
@@ -96,7 +98,7 @@ const secondSmallestDate = data.map(d => d[xKey]).sort((a, b) => a - b)[1]
     </Svg>
 
     <Html>
-      <GroupLabels width={60}/>
+      <GroupLabels />
       <SharedTooltip
         formatTitle={formatTooltipX}
         tooltipWidth={252}

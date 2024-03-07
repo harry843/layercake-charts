@@ -33,7 +33,7 @@
 					group.Region === 'London'
 			},
 			{
-				'-translate-x-[100px] xs:-translate-x-[150px] sm:-translate-x-[250px] md:-translate-x-[300px] lg:-translate-x-[350px] xl:-translate-x-[460px] translate-y-6 text-xs lg:text-sm w-52':
+				'-translate-x-[100px] xs:-translate-x-[150px] sm:-translate-x-[250px] md:-translate-x-[300px] lg:-translate-x-[350px] xl:-translate-x-[460px] translate-y-6 text-xs lg:text-sm w-40 sm:w-52':
 					group.Region === 'The Rest of England'
 			}
 		)}
