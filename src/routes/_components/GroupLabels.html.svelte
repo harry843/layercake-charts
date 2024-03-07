@@ -7,7 +7,7 @@
 	import { max } from 'd3-array';
 	import classNames from 'classnames';
 
-  export let width = 20;
+	export let width = 20;
 
 	const { data, x, y, xScale, yScale, xRange, yRange, z } = getContext('LayerCake');
 
@@ -26,10 +26,16 @@
 {#each $data as group}
 	<div
 		class={classNames(
-		`absolute -translate-x-full -translate-y-full text-sm w-${width}`,
+			`absolute -translate-x-full -translate-y-full text-sm w-${width}`,
 			{ 'translate-y-10 sm:y-translate-20': group.Framework === 'React' },
-			{ '-translate-x-[100px] xs:-translate-x-[150px] sm:-translate-x-[250px] md:-translate-x-[300px] lg:-translate-x-[350px] xl:-translate-x-[460px] translate-y-9 text-base': group.Region === 'London'},
-			{ '-translate-x-[100px] xs:-translate-x-[150px] sm:-translate-x-[250px] md:-translate-x-[300px] lg:-translate-x-[350px] xl:-translate-x-[460px] translate-y-6 text-base': group.Region === "The Rest of England"}
+			{
+				'-translate-x-[100px] xs:-translate-x-[150px] sm:-translate-x-[250px] md:-translate-x-[300px] lg:-translate-x-[350px] xl:-translate-x-[460px] translate-y-9 text-xs':
+					group.Region === 'London'
+			},
+			{
+				'-translate-x-[100px] xs:-translate-x-[150px] sm:-translate-x-[250px] md:-translate-x-[300px] lg:-translate-x-[350px] xl:-translate-x-[460px] translate-y-6 text-xs lg:text-sm':
+					group.Region === 'The Rest of England'
+			}
 		)}
 		style="
         top:{top(group.values) * 100}%;
