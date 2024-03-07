@@ -39,7 +39,7 @@
    .layercake-annotation {
      position: absolute;
      padding-left: 12px;
-     z-index: 100;
+     z-index: 10;
    }
 
  </style>
