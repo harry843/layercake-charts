@@ -74,7 +74,7 @@
 <section bind:clientWidth={width} class="h-[92.5%] flex flex-col pt-1.5 xs:pt-2.5 md:pt-4">
 	{#if width > 0}
 		<div>
-			<h1 class="text-base md:text-lg lg:text-xl xl:text-2xl font-medium text-center pt-4 px-2.5 md:px-4">
+			<h1 class="text-base md:text-lg lg:text-xl xl:text-2xl font-medium text-center pt-4 mx-[9%] md:mx-[15%]">
 				London: 2-year olds vaccinated against measles in 2023
 			</h1>
 		</div>
@@ -82,7 +82,7 @@
 		<div
 			class={classNames(
 				'absolute right-0 mr-auto ml-auto w-32 -translate-x-1 sm:-translate-x-[15%]',
-				{ 'bottom-0': width < 630 },
+				{ 'bottom-0': width <= 630 },
 				{'translate-y-[20%]': width < 430}
 			)}
 		>
