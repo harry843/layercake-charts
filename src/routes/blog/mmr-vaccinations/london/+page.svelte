@@ -82,7 +82,7 @@
 		<div
 			class={classNames(
 				'absolute right-0 mr-auto ml-auto w-32 -translate-x-1 sm:-translate-x-[15%]',
-				{ 'bottom-0': width < 580 },
+				{ 'bottom-0': width < 630 },
 				{'translate-y-[20%]': width < 430}
 			)}
 		>
@@ -114,7 +114,7 @@
 		</div>
 		{/if}
 
-		<div id="london-map" class="chart-container border grow h-full">
+		<div id="london-map" class="chart-container grow">
 			<LayerCake
 				data={geojson}
 				z={(d) => dataLookup.get(d[mapJoinKey])[colorKey]}
