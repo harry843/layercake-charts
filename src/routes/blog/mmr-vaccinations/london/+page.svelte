@@ -71,7 +71,7 @@
 
 </script>
 
-<section bind:clientWidth={width} class="h-[92.5%] flex flex-col pt-1.5 xs:pt-2.5 md:pt-4">
+<section bind:clientWidth={width} class="h-[91%] xs:h-[92.5%] flex flex-col pt-0.5 xxs:pt-1 xs:pt-1.5 sm:pt-2.5 md:pt-4">
 	{#if width > 0}
 		<div>
 			<h1 class="text-base md:text-lg lg:text-xl xl:text-2xl font-medium text-center pt-4 mx-[9%] md:mx-[15%]">
