@@ -25,7 +25,7 @@
  <div class="layercake-annotations">
    {#each annotations as d, i}
      <div
-       class="layercake-annotation text-xs"
+       class="layercake-annotation text-[10px] xs:text-xs"
        data-id="{i}"
        style="{fillStyle(d)}"
      >{getText(d)}</div>
@@ -38,7 +38,7 @@
    }
    .layercake-annotation {
      position: absolute;
-     padding-left: 12px;
+     padding-left: 10px;
      z-index: 10;
    }
 
