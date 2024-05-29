@@ -78,6 +78,7 @@
 				London: 2-year olds vaccinated against measles in 2023
 			</h1>
 		</div>
+		{#if width >= 400}
 		<div
 			class={classNames(
 				'absolute right-0 mr-auto ml-auto w-32 -translate-x-1 sm:-translate-x-[15%]',
@@ -111,6 +112,7 @@
 				</div>
 			</div>
 		</div>
+		{/if}
 
 		<div id="london-map" class="chart-container border grow h-full">
 			<LayerCake
