@@ -1,11 +1,10 @@
 <script>
 	import { LayerCake, Svg, Html } from 'layercake';
 	import { feature } from 'topojson-client';
-	import { geoIdentity } from 'd3-geo';
+	import { geoIdentity, } from 'd3-geo';
 	import { scaleQuantize } from 'd3-scale';
 	import { format } from 'd3-format';
 	import classNames from 'classnames';
-
 
 	import MapSvg from '../../../_components/Map.svg.svelte';
 	import Tooltip from '../../../_components/Tooltip.html.svelte';
@@ -40,7 +39,7 @@
 			]
 		}
 	];
-	const swoopiness = 10
+	const swoopiness = 10;
 
 	const colorKey = 'Percentage of Total';
 
@@ -66,23 +65,26 @@
 	// Create a flat array of objects that LayerCake can use to measure
 	// extents for the color scale
 	const flatData = geojson.features.map((d) => d.properties);
-	// const colors = ['#fb7185', '#fff1f2', '#f9fafb', '#eef2ff', '#c7d2fe', '#818cf8']
 	const colors = ['#e11d48', '#fda4af', '#fff1f2', '#eef2ff', '#e0e7ff', '#a5b4fc'];
 
 	const addCommas = format(',');
-	// console.log("FlatData",flatData);
-	// flatData.forEach((d) => {console.log(dataLookup.get(d[dataJoinKey])) })
+
 </script>
 
-<section bind:clientWidth={width}>
+<section bind:clientWidth={width} class="h-full flex flex-col pt-2 xs:pt-3 md:pt-5">
 	{#if width > 0}
 		<div>
-			<h1 class="text-base md:text-lg lg:text-xl xl:text-2xl font-medium text-center pt-4">
+			<h1 class="text-base md:text-lg lg:text-xl xl:text-2xl font-medium text-center pt-4 px-2.5 md:px-4">
 				London: 2-year olds vaccinated against measles in 2023
 			</h1>
 		</div>
-
-		<div class={classNames("absolute right-0 mr-auto ml-auto w-32 -translate-x-1 sm:-translate-x-[15%]", {"bottom-0": width<580})}>
+		<div
+			class={classNames(
+				'absolute right-0 mr-auto ml-auto w-32 -translate-x-1 sm:-translate-x-[15%]',
+				{ 'bottom-0': width < 580 },
+				{'translate-y-[20%]': width < 430}
+			)}
+		>
 			<h2 class="flex flex-row justify-center text-[0.575rem] sm:text-xs font-medium w-32 py-1">
 				Vaccination Rate
 			</h2>
@@ -110,10 +112,7 @@
 			</div>
 		</div>
 
-		<div
-			id="london-map"
-			class="chart-container h-[30vh] xxs:h-[36vh] xs:h-[46vh] sm:h-[60vh] md:h-[67vh] lg:h-[76vh] xl:h-[82vh]"
-		>
+		<div id="london-map" class="chart-container border grow h-full">
 			<LayerCake
 				data={geojson}
 				z={(d) => dataLookup.get(d[mapJoinKey])[colorKey]}
