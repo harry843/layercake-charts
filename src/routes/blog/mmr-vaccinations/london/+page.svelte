@@ -81,7 +81,7 @@
 		{#if width >= 400}
 		<div
 			class={classNames(
-				'absolute right-0 mr-auto ml-auto w-32 -translate-x-1 sm:-translate-x-[15%]',
+				'absolute right-0 mr-auto ml-auto w-32 -translate-x-1 sm:-translate-x-[15%] 2xl:-translate-x-[5%]',
 				{ 'bottom-0': width <= 630 },
 				{'translate-y-[20%]': width < 430}
 			)}
@@ -91,23 +91,23 @@
 			</h2>
 			<div class="flex flex-row justify-center h-3 sm:h-4 w-32">
 				<div
-					class="bg-[#e11d48] border border-[#e11d48] border-r-[#f43f5e] w-3 sm:w-4 h-3 sm:h-4 text-[0.5rem] sm:text-xs"
+					class="bg-[#e11d48] border border-[#e11d48] border-r-[#f43f5e] w-3 h-3 text-[0.5rem] sm:text-xs"
 				>
 					<p class="translate-y-3 sm:translate-y-4">65%</p>
 				</div>
 				<div
-					class="bg-[#fda4af] border border-[#fda4af] border-r-[#fda4af] w-3 sm:w-4 h-3 sm:h-4 text-xs"
+					class="bg-[#fda4af] border border-[#fda4af] border-r-[#fda4af] w-3 h-3 text-xs"
 				/>
 				<div
-					class="bg-[#fff1f2] border border-[#fff1f2] border-r-[#e5e7eb] w-3 sm:w-4 h-3 sm:h-4 text-xs"
+					class="bg-[#fff1f2] border border-[#fff1f2] border-r-[#e5e7eb] w-3 h-3 text-xs"
 				/>
 				<div
-					class="bg-[#eef2ff] border border-[#eef2ff] border-r-[#c7d2fe] w-3 sm:w-4 h-3 sm:h-4 text-xs"
+					class="bg-[#eef2ff] border border-[#eef2ff] border-r-[#c7d2fe] w-3 h-3 text-xs"
 				/>
 				<div
-					class="bg-[#e0e7ff] border border-[#e0e7ff] border-r-[#c7d2fe] w-3 sm:w-4 h-3 sm:h-4 text-xs"
+					class="bg-[#e0e7ff] border border-[#e0e7ff] border-r-[#c7d2fe] w-3 h-3 text-xs"
 				/>
-				<div class="bg-[#a5b4fc] w-3 sm:w-4 h-3 sm:h-4 text-[0.5rem] sm:text-xs">
+				<div class="bg-[#a5b4fc] w-3 h-3 text-[0.5rem] sm:text-xs">
 					<p class="translate-y-3 sm:translate-y-4 sm:translate-x-1">90%</p>
 				</div>
 			</div>
